@@ -41,3 +41,4 @@ docker build -t dev-container-$USERNAME -f Dockerfile .
 
 # Login to disposable dev container(Docker)
 docker run -it --rm -v $(pwd):/repos dev-container-$USERNAME bash
+

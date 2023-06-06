@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 KIND_VERSION=0.19.0
+USERNAME=$(whoami)
 
 # Install Kind if not installed
 if ! command -v kind &> /dev/null
@@ -33,10 +34,10 @@ then
 fi
 
 # Start kind cluster
-kind create cluster --name helm --image kindest/node:v1.26.0
+kind create cluster --name dev --image kindest/node:v1.27.2
 
 # Build disposable dev container(Docker)
-docker build -t dev-container-prady -f Dockerfile .
+docker build -t dev-container-$USERNAME -f Dockerfile .
 
 # Login to disposable dev container(Docker)
-docker run -it --rm -v $(pwd):/repos dev-container-prady bash
+docker run -it --rm -v $(pwd):/repos dev-container-$USERNAME bash

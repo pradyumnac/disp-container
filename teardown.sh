@@ -1,12 +1,15 @@
 ##!/usr/bin/env bash
 
+# get user name
+USERNAME=$(whoami)
+
 # Stop the containers
-docker stop dev-container-prady
+docker stop dev-container-$USERNAME
 # Remove the containers
-docker rm dev-container-prady
+docker rm dev-container-$USERNAME
 # Remove the image
-docker rmi dev-container-prady
+docker rmi dev-container-$USERNAME
 
 # stop kind cluster
-kind delete cluster --name prady
+kind delete cluster --name dev
 

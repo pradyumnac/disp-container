@@ -11,4 +11,4 @@ docker rm dev-container-$USERNAME
 docker rmi img-$USERNAME
 
 # stop kind cluster
-# kind delete cluster --name dev
+kind delete cluster --name dev
